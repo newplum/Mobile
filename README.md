@@ -1,23 +1,20 @@
-# 尺寸相关概念
-## CSS像素（设备独立像素、逻辑像素、单位px）
-抽象的概念，是一个相对单位，其大小取决于设备像素大小
+# viewport
+可视窗口区，通过 meta 标签设置
+## 未设置：
+1. 默认为980，但不同型号也会不同
+2. 用 document.documentElement.clientWidth 获取
 
-## 设备像素（物理像素、单位pt）
-指分辨率，屏幕在出厂的时候就是固定了。比如 750 * 1334 ，就是在屏幕横向有 750 个像素点，纵向有 1334 个像素点。
-
-## 屏幕尺寸
-1. 指屏幕对角线的长度
-2. 1 英寸（inch） = 2.54 厘米（cm）
-3. 屏幕尺寸 = 屏幕斜边的像素 / PPI
-
-## 像素密度（PPI）
-每英寸上物理像素的数量
-1. PPI 的值越高，代表在一定尺寸的屏幕上像素数量越多
-2. 是一个固定值
-3. PPI = 屏幕对角线的像素 / 屏幕尺寸
-4. 同一尺寸下， PPI 提高 n 倍，像素提高 n * n 倍
-
-## 像素比（DPR）
-1. DPR = 物理像素 / CSS 像素
-2. 本质：一个 CSS 像素占用几个物理像素
-3. 获取方法：window.devicePixelRatio
+## 设置了
+### content 包含以下内容
+- width  视口宽度，值为正整数，或字符串 device-width（设备的宽度指 css 像素）
+- height 视口高度（与 width 一致）
+- user-scalable 是否允许用户缩放页面，值为 no 或 yes
+- initial-scale 页面初始缩放值，值为数字（可以为小数）
+- minimum-scale 页面最小能够缩放的比例，值为数字（可以为小数）
+- maximum-scale 页面最大能够缩放的比例，值为数字（可以为小数）
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1,maximum-scale=1">
+```
+initial-scale 有值的情况下算页面的公式：
+- 缩放比=css像素/viewport宽度  
+- viewport宽度=css像素/缩放比
