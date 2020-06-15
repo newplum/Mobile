@@ -1,6 +1,7 @@
 # meta
-放在 <head> 标签中
+放在 `<head>` 标签中
 
+```html
 1. 禁止识别电话与邮箱（邮箱有时候没效果）
 <meta name="format-detection" content="telephone=no, email=no" />
 
@@ -21,3 +22,4 @@
 
 设置 x5 内核浏览器全屏浏览
 <meta name="x5-fullscreen" content="true" />
+```
